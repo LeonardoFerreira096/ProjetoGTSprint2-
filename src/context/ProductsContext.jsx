@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
 
 const ProductsContext = createContext()
@@ -8,20 +9,14 @@ const ProductsProvider = ({ children }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:3000/produtos')
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error(`Erro ${res.status} : ${res.statusText}`)
-                }
-                return res.json()
-            })
+        axios.get('https://api-produtos-exercicio.onrender.com/produtos')
             .then(data =>
-                setProdutos(data))
+                setProdutos(data.data)
+            )
             .catch(err =>
                 console.erro("Erro ao buscar produtos: ", err)
             )
-
-    }, [])
+         }, [])
 
     return (
         <>
