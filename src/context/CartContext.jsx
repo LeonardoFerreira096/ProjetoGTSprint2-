@@ -1,27 +1,27 @@
-import { createContext, useState  } from "react"
+import { createContext, useState } from "react"
 
-
-const CartContext = createContext ()
+const CartContext = createContext()
 
 const CartProvider = ({children}) => {
     const [count, setCount] = useState(0)
 
-    function addToCart(){
-       setCount((count) => count + 1)
+    function addToCart() {
+        setCount((count) => count + 1)
     }
-    function removerFromCart(){
+    function removeFromCart() {
         setCount((count) => count - 1)
-     }
-    function removerItem(){
+    }
+    function removeItem () {
         setCount(0)
-     }
+    }
+
   return (
-      <>
-      <CartContext.Provider value={{count, addToCart, removerFromCart, removerItem}}>
+    <>
+    <CartContext.Provider value={{count, addToCart, removeFromCart, removeItem}}>
         {children}
-      </CartContext.Provider>
-      </>
-    )   
+    </CartContext.Provider>
+    </>
+  )
 }
 
 export {CartContext, CartProvider}

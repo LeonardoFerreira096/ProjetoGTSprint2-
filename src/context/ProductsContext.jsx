@@ -1,30 +1,28 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
-
-const ProductsContext = createContext()
-
-const ProductsProvider = ({ children }) => {
-    const [produtos, setProdutos] = useState([])
+export const ProductsContext = createContext()
 
 
-    useEffect(() => {
-        axios.get('https://api-produtos-exercicio.onrender.com/produtos')
-            .then(data =>
-                setProdutos(data.data)
-            )
-            .catch(err =>
-                console.erro("Erro ao buscar produtos: ", err)
-            )
-         }, [])
+export const ProductsProvider = ({children}) => {
+const [produtos, setProdutos] = useState([])
 
-    return (
-        <>
-            <ProductsContext.Provider value={produtos}>
-                {children}
-            </ProductsContext.Provider>
-        </>
+
+useEffect(()=> {
+  axios.get('https://api-produtos-bqlz.onrender.com/produtos')
+    .then(data => 
+        setProdutos(data.data)
+    )
+    .catch(err => 
+      console.error("Erro ao buscar produtos:", err)
+    )
+}, [])
+    
+  return (
+      <>
+      <ProductsContext.Provider value={produtos}>
+          {children}
+      </ProductsContext.Provider>
+      </>
     )
 }
-
-export { ProductsContext, ProductsProvider }

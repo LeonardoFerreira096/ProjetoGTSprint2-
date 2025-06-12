@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import axios from "axios";
 
@@ -45,6 +44,7 @@ const Cadastro = () => {
           placeholder="Nome"
           required
           value={firstname}
+          name="firstname"
           className="border p-2 rounded"
         />
         <input
@@ -55,6 +55,7 @@ const Cadastro = () => {
           placeholder="Último sobrenome"
           required
           value={surname}
+          name="surname"
           className="border p-2 rounded"
         />
         <input
@@ -65,6 +66,7 @@ const Cadastro = () => {
           placeholder="Email"
           required
           value={email}
+          name="email"
           className="border p-2 rounded"
         />
         <input
@@ -75,6 +77,7 @@ const Cadastro = () => {
           placeholder="Senha"
           required
           value={password}
+          name="password"
           className="border p-2 rounded"
         />
         <button

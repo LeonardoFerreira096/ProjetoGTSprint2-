@@ -1,3 +1,9 @@
-import { act } from "react";
+import React from 'react'
 
-act
+const AuthContext = () => {
+  return (
+    <div>AuthContext</div>
+  )
+}
+
+export default AuthContext
