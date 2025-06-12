@@ -11,4 +11,4 @@ describe('Cadastro de um novo usuário', () => {
         cy.wait(5000);
         cy.contains('Usuário Leonardo cadastrado com sucesso!').should('be.visible');
     });
-});
+})
